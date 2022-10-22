@@ -58,7 +58,7 @@ func getCityInfoHandler(c echo.Context) error {
 }
 
 func addCityHandler(c echo.Context) error {
-	var cityData RequestedCity
+	var cityData RequestedCity // Cityでもいける。IDは0が入る。
 	if err := c.Bind(&cityData); err != nil {
 		return c.JSON(http.StatusBadRequest, cityData)
 	}
