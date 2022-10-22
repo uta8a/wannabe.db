@@ -30,8 +30,8 @@ func main() {
 
 	fmt.Println("Connected!")
 	city := City{}
-	// TODO: SQL Injectionの可能性があるけどサンプルなのでとりあえずこうしている
-	db.Get(&city, fmt.Sprintf("SELECT * FROM city WHERE Name = '%s'", cityName))
+	db.Get(&city, "SELECT * FROM city WHERE Name = ?", cityName)
 
 	fmt.Printf("%sの人口は%d人です\n", cityName, city.Population)
+
 }
